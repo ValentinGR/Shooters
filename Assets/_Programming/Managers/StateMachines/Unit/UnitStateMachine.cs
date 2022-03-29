@@ -16,7 +16,7 @@ public class UnitStateMachine : MonoBehaviour
 
     void OnDisable()
     {
-        _hp.onDeath -= ChangeToDeathState;
+        hp.onDeath -= ChangeToDeathState;
     }
 
     #endregion
@@ -28,10 +28,10 @@ public class UnitStateMachine : MonoBehaviour
 
     public Animator weaponsAnimator { get ; private set ; }
 
-    public Weapons _weapons { get ; private set ; }
-    public Movement _movement { get ; private set ; }
-    public HealthPoint _hp { get ; private set ; }
-    public CollisionCheck _collisionCheck { get ; private set ; }
+    public Weapons weapons { get ; private set ; }
+    public Movement movement { get ; private set ; }
+    public HealthPoint hp { get ; private set ; }
+    public CollisionCheck collisionCheck { get ; private set ; }
 
 
     public IUnitState currentState { get ; private set ;}
@@ -49,14 +49,14 @@ public class UnitStateMachine : MonoBehaviour
 
     void Awake()
     {
-        _movement = GetComponent<Movement>();
-        _weapons = GetComponentInChildren<Weapons>();
-        _hp = GetComponent<HealthPoint>();
-        _collisionCheck = GetComponent<CollisionCheck>();
+        movement = GetComponent<Movement>();
+        weapons = GetComponentInChildren<Weapons>();
+        hp = GetComponent<HealthPoint>();
+        collisionCheck = GetComponent<CollisionCheck>();
 
-        _hp.onDeath += ChangeToDeathState;
+        hp.onDeath += ChangeToDeathState;
 
-        weaponsAnimator = _weapons.gameObject.GetComponent<Animator>();
+        weaponsAnimator = weapons.gameObject.GetComponent<Animator>();
 
         ChangeState(idleState);
     }

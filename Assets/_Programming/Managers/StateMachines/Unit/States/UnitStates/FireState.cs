@@ -6,7 +6,7 @@ public class FireState : IUnitState
 {
     public void Enter(UnitStateMachine unitStateMachine)
     {
-        int fireValue = unitStateMachine._weapons.Fire();
+        int fireValue = unitStateMachine.weapons.Fire();
         
         if (fireValue == 0)
             unitStateMachine.ChangeState(unitStateMachine.reloadAndMove);

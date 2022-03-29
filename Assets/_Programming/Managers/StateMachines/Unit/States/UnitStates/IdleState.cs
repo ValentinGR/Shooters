@@ -11,9 +11,9 @@ public class IdleState : IUnitState
 
     public void Execute(UnitStateMachine unitStateMachine)
     {
-        unitStateMachine._movement.DefineDirection(unitStateMachine.direction);
-        unitStateMachine._movement.LookAtTarget(unitStateMachine.aimDirection);
-        unitStateMachine._movement.Move();
+        unitStateMachine.movement.DefineDirection(unitStateMachine.direction);
+        unitStateMachine.movement.LookAtTarget(unitStateMachine.aimDirection);
+        unitStateMachine.movement.Move();
     }
 
     public void Exit(UnitStateMachine unitStateMachine)

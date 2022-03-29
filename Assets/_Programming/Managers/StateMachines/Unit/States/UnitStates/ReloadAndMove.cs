@@ -12,9 +12,9 @@ public class ReloadAndMove : IUnitState
 
     public void Execute(UnitStateMachine unitStateMachine)
     {
-        unitStateMachine._movement.DefineDirection(unitStateMachine.direction);
-        unitStateMachine._movement.LookAtTarget(unitStateMachine.aimDirection);
-        unitStateMachine._movement.Move();
+        unitStateMachine.movement.DefineDirection(unitStateMachine.direction);
+        unitStateMachine.movement.LookAtTarget(unitStateMachine.aimDirection);
+        unitStateMachine.movement.Move();
 
         animationNormalizedTime -= Time.deltaTime;
 
@@ -24,6 +24,6 @@ public class ReloadAndMove : IUnitState
 
     public void Exit(UnitStateMachine unitStateMachine)
     {
-        unitStateMachine._weapons.Reload();
+        unitStateMachine.weapons.Reload();
     }
 }

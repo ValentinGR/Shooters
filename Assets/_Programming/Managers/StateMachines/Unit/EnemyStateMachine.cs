@@ -8,12 +8,12 @@ public class EnemyStateMachine : UnitStateMachine, IPooleable
 
     void OnEnable()
     {
-        _hp.onDeath += ReturnToPool;
+        hp.onDeath += ReturnToPool;
     }
 
     void OnDisable()
     {
-        _hp.onDeath -= ReturnToPool;
+        hp.onDeath -= ReturnToPool;
     }
 
     #endregion
@@ -61,7 +61,7 @@ public class EnemyStateMachine : UnitStateMachine, IPooleable
 
     void ReturnToPool()
     {
-        _hp.ResetHP();
+        hp.ResetHP();
         _poolingSystem.ReturnAnObject(this);
     }
 
